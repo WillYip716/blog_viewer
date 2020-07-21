@@ -33,7 +33,7 @@ class Post extends React.Component{
                     <h1>{this.state.posts.title}</h1>
                     <p>{this.state.posts.article}</p>
                     <p>{this.state.posts.timestamp}</p> 
-                    <CommentField postid={this.props.match.params.id}/>   
+                    <CommentField key={this.props.match.params.id} postid={this.props.match.params.id}/>   
                   </div>
                   
             }

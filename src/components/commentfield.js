@@ -39,10 +39,12 @@ class CommentField extends React.Component {
 
         axios.post('http://10.0.2.15:4000/posts/'+this.props.postid+'/comment', { author, content:comment})
             .then((result) => {
-                console.log("result is " +result);
-                const commentlist = this.state.comments.concat(result);
+                const commentlist = this.state.comments;
+                commentlist.push(result.data);
                 this.setState((state) => ({
-                    comments: commentlist
+                    comments: commentlist,
+                    author: "",
+                    comment: ""
                 })); 
             //access the results here....
 
@@ -54,8 +56,8 @@ class CommentField extends React.Component {
         return (
             <section>
                 
-                {this.state.comments.map((c) => (
-                    <div key={c._id}>
+                {this.state.comments.map((c,index) => (
+                    <div key={index}>
                         <p>{c.content}</p>
                         <p>{c.author}</p>
                         <p>{c.timestamp}</p>
