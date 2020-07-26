@@ -46,8 +46,6 @@ class CommentField extends React.Component {
                     author: "",
                     comment: ""
                 })); 
-            //access the results here....
-
         });
     }
 
@@ -65,20 +63,21 @@ class CommentField extends React.Component {
                 ))}
                 
                 <form onSubmit={this.onSubmit}>
-                    <label>Comment:</label>
-                    <input
-                        type="text"
-                        name="comment"
-                        value={comment}
-                        onChange={this.onChange}
-                    />
                     <label>Name:</label>
                     <input
                         type="text"
                         name="author"
                         value={author}
                         onChange={this.onChange}
-                    />                 
+                    />
+                    <label>Comment:</label>
+                    <textarea
+                        className="article_input"
+                        type="text"
+                        name="comment"
+                        value={comment}
+                        onChange={this.onChange}
+                    />               
                     <button type="submit">Submit</button>
                 </form>
             </section>       

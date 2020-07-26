@@ -15,7 +15,7 @@ class Home extends React.Component{
     componentDidMount() {
         axios.get('http://10.0.2.15:4000/posts')
           .then(res => {
-            const posts = res.data;
+            const posts = res.data.filter((post) => post.published);
             this.setState((state) => ({
                 loading: false,
                 posts: posts
