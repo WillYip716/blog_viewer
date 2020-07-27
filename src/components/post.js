@@ -14,7 +14,7 @@ class Post extends React.Component{
     }
 
     componentDidMount() {
-        axios.get('http://10.0.2.15:4000/posts/'+this.props.match.params.id)
+        axios.get('https://gentle-reaches-06177.herokuapp.com/posts/'+this.props.match.params.id)
           .then(res => {
             const posts = res.data;
             this.setState((state) => ({

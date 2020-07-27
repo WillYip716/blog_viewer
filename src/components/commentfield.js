@@ -13,7 +13,7 @@ class CommentField extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://10.0.2.15:4000/posts/'+this.props.postid+'/comments')
+        axios.get('https://gentle-reaches-06177.herokuapp.com/posts/'+this.props.postid+'/comments')
           .then(res => {
             const comments = res.data;
             this.setState((state) => ({
@@ -37,7 +37,7 @@ class CommentField extends React.Component {
         // get our form data out of state
         const { author, comment } = this.state;
 
-        axios.post('http://10.0.2.15:4000/posts/'+this.props.postid+'/comment', { author, content:comment})
+        axios.post('https://gentle-reaches-06177.herokuapp.com/posts/'+this.props.postid+'/comment', { author, content:comment})
             .then((result) => {
                 const commentlist = this.state.comments;
                 commentlist.push(result.data);
